@@ -1,8 +1,8 @@
-/* Configurações Globais e Variáveis de Cores (Nova Paleta Elegante e Colorida) */
+/* Configurações Globais e Variáveis de Cores */
 :root {
-    --bg-color: #f1f5f9; /* Cinza claro azulado bem suave */
+    --bg-color: #f1f5f9; /* Cinza claro azulado suave */
     --card-bg: #ffffff; /* Fundo dos cards branco e limpo */
-    --text-color: #0f172a; /* Preto ardósia profundo para legibilidade */
+    --text-color: #0f172a; /* Preto ardósia profundo para alta legibilidade */
     --accent-color: #4f46e5; /* Azul Índigo vibrante e elegante */
     --secondary-color: #06b6d4; /* Azul Ciano para detalhes modernos */
     --border-color: #cbd5e1; /* Cinza médio para bordas */
@@ -17,7 +17,7 @@
     --bg-color: #0f172a;
     --card-bg: #1e293b;
     --text-color: #f8fafc;
-    --accent-color: #818cf8; /* Índigo mais claro para contraste */
+    --accent-color: #818cf8; /* Índigo mais claro para contraste no escuro */
     --secondary-color: #22d3ee;
     --border-color: #334155;
     --timeline-line: #818cf8;
@@ -40,9 +40,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
-/* Menu de Acessibilidade */
+/* Menu de Acessibilidade (Canto Superior Direito) */
 .accessibility-container {
     position: fixed;
     top: 20px;
@@ -99,11 +100,11 @@ body {
     display: none;
 }
 
-/* Cabeçalho */
+/* Cabeçalho ocupando a largura total */
 header {
     text-align: center;
     margin: 60px 0 40px 0;
-    max-width: 800px;
+    width: 100%; 
 }
 
 header h1 {
@@ -128,10 +129,9 @@ header .subtitle {
     color: #94a3b8;
 }
 
-/* Cards de Conteúdo */
+/* Conteúdo Principal expandido para abranger a tela toda */
 main {
-    max-width: 800px;
-    width: 100%;
+    width: 100%; 
 }
 
 .card {
@@ -139,8 +139,9 @@ main {
     border: 1px solid var(--border-color);
     padding: 40px;
     margin-bottom: 35px;
-    border-radius: 12px; /* Cantos levemente arredondados modernos */
+    border-radius: 12px; 
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    width: 100%; /* Força o card a esticar de ponta a ponta */
 }
 
 .card h2 {
@@ -152,155 +153,4 @@ main {
     padding-left: 15px;
 }
 
-.card p {
-    margin-bottom: 15px;
-}
-
-/* Imagens Estilizadas com Cores Vivas */
-.image-container {
-    margin: 35px 0;
-    text-align: center;
-}
-
-.responsive-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-}
-
-.image-caption {
-    display: block;
-    font-family: var(--font-title);
-    font-style: italic;
-    font-size: 0.95rem;
-    color: #64748b;
-    margin-top: 12px;
-}
-
-/* Linha do Tempo */
-.section-desc {
-    font-style: italic;
-    color: #475569;
-    margin-bottom: 30px;
-}
-[data-theme="dark"] .section-desc {
-    color: #94a3b8;
-}
-
-.timeline {
-    position: relative;
-    border-left: 3px solid var(--timeline-line);
-    padding-left: 25px;
-    margin-left: 10px;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 35px;
-}
-
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: -33px;
-    top: 6px;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: var(--secondary-color);
-    border: 3px solid var(--card-bg);
-}
-
-.timeline-date {
-    font-family: var(--font-title);
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--accent-color);
-    margin-bottom: 5px;
-}
-
-.timeline-content h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-/* Estilização da Caixinha de Perguntas (FAQ Accordion) */
-.faq-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.faq-box {
-    background-color: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-    padding: 15px;
-}
-
-.faq-box summary {
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    color: var(--text-color);
-    list-style: none; /* Remove seta padrão */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Adiciona um ícone customizado de "+" na caixinha de perguntas */
-.faq-box summary::after {
-    content: '＋';
-    font-weight: bold;
-    color: var(--accent-color);
-    transition: transform 0.2s;
-}
-
-/* Quando aberto, rotaciona o ícone para virar um "X" */
-.faq-box[open] summary::after {
-    transform: rotate(45deg);
-}
-
-.faq-answer {
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--border-color);
-    font-size: 1rem;
-}
-
-/* Rodapé */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    font-size: 0.95rem;
-    color: #64748b;
-}
-
-/* Responsividade Adaptativa (Celulares e Tablets) */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.8rem;
-    }
-    
-    .card {
-        padding: 25px 20px;
-    }
-
-    .card h2 {
-        font-size: 1.8rem;
-    }
-
-    .accessibility-container {
-        top: 12px;
-        right: 12px;
-    }
-}
+.
