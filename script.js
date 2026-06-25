@@ -1,4 +1,4 @@
-// Seleção de elementos
+// Seleção de elementos do DOM
 const accButton = document.getElementById('acc-button');
 const accMenu = document.getElementById('acc-menu');
 const btnTheme = document.getElementById('btn-theme');
@@ -11,14 +11,13 @@ accButton.addEventListener('click', () => {
     accMenu.classList.toggle('hidden');
 });
 
-// Fechar o menu ao clicar fora dele
 document.addEventListener('click', (event) => {
     if (!accButton.contains(event.target) && !accMenu.contains(event.target)) {
         accMenu.classList.add('hidden');
     }
 });
 
-// 2. Tema Claro/Escuro
+// 2. Alternar Tema Claro/Escuro
 btnTheme.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     if (currentTheme === 'dark') {
@@ -28,7 +27,7 @@ btnTheme.addEventListener('click', () => {
     }
 });
 
-// 3. Controle de Tamanho de Fonte
+// 3. Controle Dinâmico do Tamanho da Fonte
 let fontSizeState = 0; // 0: Normal, 1: Grande, 2: Muito Grande
 btnFont.addEventListener('click', () => {
     fontSizeState = (fontSizeState + 1) % 3;
@@ -45,7 +44,7 @@ btnFont.addEventListener('click', () => {
     }
 });
 
-// 4. Ouvir Texto (Sintetizador de Voz)
+// 4. Ouvir Texto (Text-to-Speech) - Lê o conteúdo do FAQ e da página de forma fluida
 let isSpeaking = false;
 let synth = window.speechSynthesis;
 let utterance;
@@ -58,7 +57,7 @@ btnSpeak.addEventListener('click', () => {
         return;
     }
 
-    // Filtra apenas o texto legível para evitar ler links soltos ou legendas quebradas
+    // Coleta o texto puro de forma organizada para a leitura por voz
     const textToRead = mainContent.innerText;
 
     if (textToRead.trim() !== "") {
