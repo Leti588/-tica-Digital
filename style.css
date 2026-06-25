@@ -1,34 +1,35 @@
-/* Configurações Globais e Variáveis de Cores Vivas e Elegantes */
+/* Nova Paleta de Cores: Tecnologia Viva e Sofisticada */
 :root {
-    --bg-color: #f8fafc; /* Cinza claro azulado, limpo e repousante */
-    --card-bg: #ffffff; /* Fundo dos cards totalmente branco */
-    --text-color: #0f172a; /* Preto ardósia profundo para máxima leitura */
-    --accent-color: #6366f1; /* Azul Índigo vivo e moderno */
-    --secondary-color: #10b981; /* Verde Esmeralda vivo para botões e acertos */
-    --game-color: #f43f5e; /* Rosa Coral vibrante para elementos do jogo */
-    --border-color: #e2e8f0; /* Linhas sutis de divisão */
-    --font-title: 'Playfair Display', 'Georgia', serif;
-    --font-body: 'Inter', 'Helvetica Neue', sans-serif;
-    --base-font-size: 16px;
+    --bg-color: #0b0f19; /* Fundo cyberpunk ultra escuro e focado */
+    --card-bg: #151d30; /* Fundo dos cards em azul escuro digital */
+    --text-color: #e2e8f0; /* Texto claro de alta legibilidade */
+    --accent-color: #6366f1; /* Azul Índigo elétrico para destaques */
+    --secondary-color: #00f5a0; /* Verde Neon/Esmeralda hiper-interativo */
+    --game-color: #ff3366; /* Rosa Magenta Cyber para o jogo */
+    --border-color: #24324d; 
+    --font-title: 'Space Grotesk', sans-serif; /* Fonte geométrica moderna */
+    --font-body: 'JetBrains Mono', monospace; /* Fonte estilo código */
+    --base-font-size: 15px;
     --timeline-line: #6366f1;
 }
 
-/* Tema Escuro Integrado */
+/* Tema Claro (Invertido cirurgicamente para manter a modernidade) */
 [data-theme="dark"] {
-    --bg-color: #0f172a;
-    --card-bg: #1e293b;
-    --text-color: #f8fafc;
-    --accent-color: #818cf8;
-    --secondary-color: #34d399;
-    --border-color: #334155;
-    --timeline-line: #818cf8;
+    --bg-color: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-color: #0f172a;
+    --accent-color: #4f46e5;
+    --secondary-color: #0d9488;
+    --game-color: #e11d48;
+    --border-color: #cbd5e1;
+    --timeline-line: #4f46e5;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background-color 0.3s, color 0.3s, font-size 0.2s, border-color 0.3s;
+    transition: background-color 0.3s, color 0.3s, font-size 0.2s, border-color 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 body {
@@ -44,7 +45,7 @@ body {
     width: 100%;
 }
 
-/* Menu de Acessibilidade Flutuante */
+/* Menu de Acessibilidade Modernizado */
 .accessibility-container {
     position: fixed;
     top: 20px;
@@ -56,26 +57,32 @@ body {
     background-color: var(--accent-color);
     color: #ffffff;
     border: none;
-    font-size: 24px;
-    padding: 12px;
-    border-radius: 50%;
+    font-size: 20px;
+    padding: 14px;
+    border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+}
+
+.acc-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--secondary-color);
+    color: #000;
 }
 
 .acc-menu {
     position: absolute;
-    top: 60px;
+    top: 65px;
     right: 0;
     background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
     padding: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 180px;
+    width: 200px;
 }
 
 .acc-menu button {
@@ -86,7 +93,7 @@ body {
     border-radius: 6px;
     cursor: pointer;
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     text-align: left;
 }
@@ -101,7 +108,7 @@ body {
     display: none !important;
 }
 
-/* Cabeçalho de Ponta a Ponta */
+/* Cabeçalho Tecnológico */
 header {
     text-align: center;
     margin: 60px 0 40px 0;
@@ -110,27 +117,20 @@ header {
 
 header h1 {
     font-family: var(--font-title);
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: 700;
     color: var(--text-color);
-    background: linear-gradient(to right, var(--text-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 12px;
+    letter-spacing: -1px;
 }
 
 header .subtitle {
-    font-family: var(--font-title);
-    font-style: italic;
-    font-size: 1.4rem;
-    color: #475569;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    opacity: 0.9;
 }
 
-[data-theme="dark"] header .subtitle {
-    color: #94a3b8;
-}
-
-/* Área de Conteúdo Expandida (100% de Largura) */
+/* Cards Interativos */
 main {
     width: 100%; 
 }
@@ -141,26 +141,23 @@ main {
     padding: 50px 40px;
     margin-bottom: 40px;
     border-radius: 16px; 
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
     width: 100%; 
+}
+
+/* Efeito Interativo de Luz ao passar o mouse no Card */
+.card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
 }
 
 .card h2 {
     font-family: var(--font-title);
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     margin-bottom: 24px;
     color: var(--text-color);
-    border-left: 6px solid var(--accent-color);
-    padding-left: 18px;
 }
 
-.card p {
-    margin-bottom: 18px;
-    color: inherit;
-    font-weight: 300;
-}
-
-/* Imagens Expandidas Fluidas */
+/* Imagens */
 .image-container {
     margin: 40px 0;
     text-align: center;
@@ -169,38 +166,35 @@ main {
 
 .responsive-img {
     width: 100%; 
-    max-height: 550px; 
+    max-height: 500px; 
     object-fit: cover; 
     border-radius: 12px;
-    box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+    border: 1px solid var(--border-color);
 }
 
 .image-caption {
     display: block;
-    font-family: var(--font-title);
-    font-style: italic;
-    font-size: 1rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
     color: #64748b;
     margin-top: 14px;
 }
 
-/* Linha do Tempo Estilizada */
+/* Linha do Tempo Digital */
 .section-desc {
-    font-style: italic;
-    color: #475569;
+    color: #94a3b8;
     margin-bottom: 35px;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 [data-theme="dark"] .section-desc {
-    color: #94a3b8;
+    color: #475569;
 }
 
 .timeline {
     position: relative;
-    border-left: 4px solid var(--timeline-line);
+    border-left: 2px dashed var(--timeline-line);
     padding-left: 30px;
     margin-left: 15px;
-    width: 100%;
 }
 
 .timeline-item {
@@ -208,170 +202,155 @@ main {
     margin-bottom: 40px;
 }
 
-.timeline-item:last-child {
-    margin-bottom: 0;
-}
-
 .timeline-dot {
     position: absolute;
     left: -39px;
-    top: 6px;
+    top: 8px;
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: var(--secondary-color);
-    border: 4px solid var(--card-bg);
+    background-color: var(--bg-color);
+    border: 3px solid var(--secondary-color);
 }
 
 .timeline-date {
     font-family: var(--font-title);
     font-weight: bold;
-    font-size: 1.3rem;
-    color: var(--accent-color);
-    margin-bottom: 6px;
+    font-size: 1.4rem;
+    color: var(--secondary-color);
 }
 
-.timeline-content h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 6px;
-}
-
-/* Caixinha de Perguntas (Accordion FAQ) */
+/* Caixinha de Perguntas (FAQ Módulos) */
 .faq-container {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: 100%;
 }
 
 .faq-box {
-    background-color: var(--bg-color);
+    background-color: rgba(0,0,0,0.15);
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    overflow: hidden;
-    padding: 18px;
-    width: 100%;
+    padding: 20px;
+}
+
+.faq-box[open] {
+    border-color: var(--secondary-color);
 }
 
 .faq-box summary {
-    font-family: var(--font-body);
     font-weight: 600;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     cursor: pointer;
-    color: var(--text-color);
-    list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .faq-box summary::after {
-    content: '＋';
-    font-weight: bold;
+    content: '[ + ]';
     color: var(--accent-color);
-    transition: transform 0.2s;
 }
 
 .faq-box[open] summary::after {
-    transform: rotate(45deg);
+    content: '[ - ]';
     color: var(--game-color);
 }
 
-.faq-answer {
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px solid var(--border-color);
-    font-size: 1.05rem;
-}
-
-/* Área Interativa do Joguinho */
+/* Sandbox / Módulo do Jogo Avançado */
 .game-box {
-    background-color: var(--bg-color);
-    border: 2px dashed var(--border-color);
+    background-color: rgba(0,0,0,0.2);
+    border: 2px solid var(--border-color);
     border-radius: 12px;
-    padding: 30px;
-    text-align: center;
+    padding: 35px;
     width: 100%;
-    margin-bottom: 30px;
 }
 
-.game-btn {
+.game-btn, .game-btn-next {
     background-color: var(--game-color);
     color: white;
     border: none;
     padding: 14px 28px;
     font-family: var(--font-body);
-    font-size: 1rem;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 15px;
-    box-shadow: 0 4px 10px rgba(244, 63, 94, 0.3);
+    margin-top: 20px;
 }
 
 .game-btn:hover {
-    opacity: 0.9;
-}
-
-.game-progress {
-    font-weight: 600;
-    color: var(--accent-color);
-    margin-bottom: 15px;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 63, 94, 0.4);
 }
 
 .options-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
-    width: 100%;
+    gap: 14px;
+    margin-top: 25px;
 }
 
 .option-btn {
     background-color: var(--card-bg);
     color: var(--text-color);
     border: 1px solid var(--border-color);
-    padding: 14px;
+    padding: 16px;
     border-radius: 8px;
     cursor: pointer;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-align: left;
 }
 
-.option-btn:hover {
+.option-btn:hover:not(:disabled) {
     border-color: var(--accent-color);
-    background-color: rgba(99, 102, 241, 0.05);
+    background-color: rgba(99, 102, 241, 0.1);
 }
 
-/* Rodapé de ponta a ponta */
+/* Classes de Interação Dinâmica do Jogo */
+.option-btn.correct {
+    border-color: var(--secondary-color) !important;
+    background-color: rgba(0, 245, 160, 0.15) !important;
+    color: #fff !important;
+}
+
+.option-btn.wrong {
+    border-color: var(--game-color) !important;
+    background-color: rgba(255, 51, 102, 0.15) !important;
+}
+
+.feedback-container {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: rgba(255,255,255,0.02);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 0 8px 8px 0;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.game-btn-next {
+    background-color: var(--accent-color);
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Rodapé */
 footer {
     text-align: center;
     margin-top: 50px;
     padding: 30px;
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: #64748b;
     width: 100%;
-    border-top: 1px solid var(--border-color);
 }
 
-/* Responsividade de Alta Performance */
+/* Responsividade */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2.8rem;
-    }
-    
-    .card {
-        padding: 30px 20px;
-    }
-
-    .card h2 {
-        font-size: 1.8rem;
-    }
-
-    .accessibility-container {
-        top: 12px;
-        right: 12px;
-    }
+    header h1 { font-size: 2.8rem; }
+    .card { padding: 30px 20px; }
+    header { margin: 40px 0 20px 0; }
 }
