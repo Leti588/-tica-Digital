@@ -1,0 +1,253 @@
+/* Configurações Globais e Variáveis de Cores */
+:root {
+    --bg-color: #f4f4f6; /* Cinza bem claro */
+    --card-bg: #ffffff;
+    --text-color: #1a1a1a; /* Quase preto */
+    --accent-color: #222222; /* Cinza escuro/preto para destaques */
+    --border-color: #e0e0e0;
+    --font-title: 'Playfair Display', 'Georgia', serif;
+    --font-body: 'Helvetica Neue', 'Arial', sans-serif;
+    --base-font-size: 16px;
+    --timeline-line: #cccccc;
+}
+
+/* Tema Escuro */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --accent-color: #ffffff;
+    --border-color: #333333;
+    --timeline-line: #444444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s, font-size 0.2s, border-color 0.3s;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: var(--base-font-size);
+    line-height: 1.7;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Menu de Acessibilidade Fixado */
+.accessibility-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.acc-btn {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    font-size: 24px;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.acc-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 170px;
+}
+
+.acc-menu button {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 14px;
+    text-align: left;
+}
+
+.acc-menu button:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Cabeçalho */
+header {
+    text-align: center;
+    margin: 60px 0 40px 0;
+    max-width: 800px;
+}
+
+header h1 {
+    font-family: var(--font-title);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+header .subtitle {
+    font-family: var(--font-title);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: #666;
+}
+
+[data-theme="dark"] header .subtitle {
+    color: #aaa;
+}
+
+/* Conteúdo Principal (Cards Elegantes) */
+main {
+    max-width: 800px;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 4px; /* Cantos retos trazem visual sóbrio e moderno */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+}
+
+.card h2 {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.card p {
+    margin-bottom: 15px;
+}
+
+/* Imagens */
+.image-container {
+    margin: 30px 0 10px 0;
+    text-align: center;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px;
+    filter: grayscale(100%); /* Mantém a paleta purista de cinzas */
+    opacity: 0.9;
+}
+
+.image-caption {
+    display: block;
+    font-family: var(--font-title);
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 8px;
+}
+
+/* Seção do Título da Linha do Tempo */
+.section-desc {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 30px;
+}
+[data-theme="dark"] .section-desc {
+    color: #aaa;
+}
+
+/* Estrutura da Linha do Tempo */
+.timeline {
+    position: relative;
+    border-left: 2px solid var(--timeline-line);
+    padding-left: 20px;
+    margin-left: 10px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 35px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -27px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    border: 2px solid var(--card-bg);
+}
+
+.timeline-date {
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.timeline-content h3 {
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Responsividade Avançada (Celulares e Tablets) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .card {
+        padding: 25px 20px;
+    }
+
+    .card h2 {
+        font-size: 1.6rem;
+    }
+
+    .accessibility-container {
+        top: 10px;
+        right: 10px;
+    }
+}
