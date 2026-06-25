@@ -1,24 +1,26 @@
-/* Configurações Globais e Variáveis de Cores */
+/* Configurações Globais e Variáveis de Cores (Nova Paleta Elegante e Colorida) */
 :root {
-    --bg-color: #f4f4f6; /* Cinza bem claro */
-    --card-bg: #ffffff;
-    --text-color: #1a1a1a; /* Quase preto */
-    --accent-color: #222222; /* Cinza escuro/preto para destaques */
-    --border-color: #e0e0e0;
+    --bg-color: #f1f5f9; /* Cinza claro azulado bem suave */
+    --card-bg: #ffffff; /* Fundo dos cards branco e limpo */
+    --text-color: #0f172a; /* Preto ardósia profundo para legibilidade */
+    --accent-color: #4f46e5; /* Azul Índigo vibrante e elegante */
+    --secondary-color: #06b6d4; /* Azul Ciano para detalhes modernos */
+    --border-color: #cbd5e1; /* Cinza médio para bordas */
     --font-title: 'Playfair Display', 'Georgia', serif;
     --font-body: 'Helvetica Neue', 'Arial', sans-serif;
     --base-font-size: 16px;
-    --timeline-line: #cccccc;
+    --timeline-line: #6366f1;
 }
 
-/* Tema Escuro */
+/* Tema Escuro Adaptado */
 [data-theme="dark"] {
-    --bg-color: #121212;
-    --card-bg: #1e1e1e;
-    --text-color: #e0e0e0;
-    --accent-color: #ffffff;
-    --border-color: #333333;
-    --timeline-line: #444444;
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-color: #f8fafc;
+    --accent-color: #818cf8; /* Índigo mais claro para contraste */
+    --secondary-color: #22d3ee;
+    --border-color: #334155;
+    --timeline-line: #818cf8;
 }
 
 * {
@@ -40,7 +42,7 @@ body {
     align-items: center;
 }
 
-/* Menu de Acessibilidade Fixado */
+/* Menu de Acessibilidade */
 .accessibility-container {
     position: fixed;
     top: 20px;
@@ -50,13 +52,13 @@ body {
 
 .acc-btn {
     background-color: var(--accent-color);
-    color: var(--bg-color);
+    color: #ffffff;
     border: none;
     font-size: 24px;
     padding: 12px;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
 }
 
 .acc-menu {
@@ -65,13 +67,13 @@ body {
     right: 0;
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
     gap: 8px;
-    width: 170px;
+    width: 180px;
 }
 
 .acc-menu button {
@@ -79,16 +81,18 @@ body {
     color: var(--text-color);
     border: 1px solid var(--border-color);
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     font-family: var(--font-body);
     font-size: 14px;
+    font-weight: 500;
     text-align: left;
 }
 
 .acc-menu button:hover {
     background-color: var(--accent-color);
-    color: var(--bg-color);
+    color: #ffffff;
+    border-color: var(--accent-color);
 }
 
 .hidden {
@@ -104,24 +108,27 @@ header {
 
 header h1 {
     font-family: var(--font-title);
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--text-color);
+    background: linear-gradient(to right, var(--text-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 10px;
 }
 
 header .subtitle {
     font-family: var(--font-title);
     font-style: italic;
-    font-size: 1.25rem;
-    color: #666;
+    font-size: 1.3rem;
+    color: #475569;
 }
 
 [data-theme="dark"] header .subtitle {
-    color: #aaa;
+    color: #94a3b8;
 }
 
-/* Conteúdo Principal (Cards Elegantes) */
+/* Cards de Conteúdo */
 main {
     max-width: 800px;
     width: 100%;
@@ -131,60 +138,60 @@ main {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     padding: 40px;
-    margin-bottom: 30px;
-    border-radius: 4px; /* Cantos retos trazem visual sóbrio e moderno */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+    margin-bottom: 35px;
+    border-radius: 12px; /* Cantos levemente arredondados modernos */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 .card h2 {
     font-family: var(--font-title);
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 20px;
-    color: var(--accent-color);
+    color: var(--text-color);
+    border-left: 5px solid var(--accent-color);
+    padding-left: 15px;
 }
 
 .card p {
     margin-bottom: 15px;
 }
 
-/* Imagens */
+/* Imagens Estilizadas com Cores Vivas */
 .image-container {
-    margin: 30px 0 10px 0;
+    margin: 35px 0;
     text-align: center;
 }
 
 .responsive-img {
     max-width: 100%;
     height: auto;
-    border-radius: 2px;
-    filter: grayscale(100%); /* Mantém a paleta purista de cinzas */
-    opacity: 0.9;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
 }
 
 .image-caption {
     display: block;
     font-family: var(--font-title);
     font-style: italic;
-    font-size: 0.9rem;
-    color: #777;
-    margin-top: 8px;
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-top: 12px;
 }
 
-/* Seção do Título da Linha do Tempo */
+/* Linha do Tempo */
 .section-desc {
     font-style: italic;
-    color: #666;
+    color: #475569;
     margin-bottom: 30px;
 }
 [data-theme="dark"] .section-desc {
-    color: #aaa;
+    color: #94a3b8;
 }
 
-/* Estrutura da Linha do Tempo */
 .timeline {
     position: relative;
-    border-left: 2px solid var(--timeline-line);
-    padding-left: 20px;
+    border-left: 3px solid var(--timeline-line);
+    padding-left: 25px;
     margin-left: 10px;
 }
 
@@ -199,28 +206,74 @@ main {
 
 .timeline-dot {
     position: absolute;
-    left: -27px;
-    top: 5px;
-    width: 12px;
-    height: 12px;
+    left: -33px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background-color: var(--accent-color);
-    border: 2px solid var(--card-bg);
+    background-color: var(--secondary-color);
+    border: 3px solid var(--card-bg);
 }
 
 .timeline-date {
     font-family: var(--font-title);
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: var(--accent-color);
     margin-bottom: 5px;
 }
 
 .timeline-content h3 {
-    font-family: var(--font-body);
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 5px;
+}
+
+/* Estilização da Caixinha de Perguntas (FAQ Accordion) */
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-box {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 15px;
+}
+
+.faq-box summary {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--text-color);
+    list-style: none; /* Remove seta padrão */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Adiciona um ícone customizado de "+" na caixinha de perguntas */
+.faq-box summary::after {
+    content: '＋';
+    font-weight: bold;
+    color: var(--accent-color);
+    transition: transform 0.2s;
+}
+
+/* Quando aberto, rotaciona o ícone para virar um "X" */
+.faq-box[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+    font-size: 1rem;
 }
 
 /* Rodapé */
@@ -228,14 +281,14 @@ footer {
     text-align: center;
     margin-top: 40px;
     padding: 20px;
-    font-size: 0.9rem;
-    color: #888;
+    font-size: 0.95rem;
+    color: #64748b;
 }
 
-/* Responsividade Avançada (Celulares e Tablets) */
+/* Responsividade Adaptativa (Celulares e Tablets) */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
     
     .card {
@@ -243,11 +296,11 @@ footer {
     }
 
     .card h2 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .accessibility-container {
-        top: 10px;
-        right: 10px;
+        top: 12px;
+        right: 12px;
     }
 }
