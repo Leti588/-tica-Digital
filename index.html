@@ -3,165 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistemas Codificados: Ética Digital</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Ética Digital e Cidadania</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="dark-theme">
 
-    <div class="accessibility-container">
-        <button id="acc-button" class="acc-btn" aria-label="Menu de Acessibilidade">⚡</button>
-        <div id="acc-menu" class="acc-menu hidden">
-            <button id="btn-theme">> Alternar_Tema</button>
-            <button id="btn-font">> Aumentar_Fonte</button>
-            <button id="btn-speak">> Ouvir_Texto</button>
-        </div>
+    <div class="accessibility-menu">
+        <button id="btn-theme" title="Alternar Tema">🌓 Tema</button>
+        <button id="btn-font" title="Aumentar Fonte">A+</button>
+        <button id="btn-speak" title="Ouvir Texto">🔊 Ouvir</button>
     </div>
 
     <header>
-        <h1>[Ética_Digital]</h1>
-        <p class="subtitle">// construindo diretrizes para o futuro da tecnologia</p>
+        <div class="container header-content">
+            <h1>ÉTICA DIGITAL</h1>
+            <p>O guia para a cidadania no ecossistema tecnológico</p>
+        </div>
     </header>
 
-    <main id="main-content">
-        <section class="card intro-section">
-            <h2>01 // O que é Ética Digital?</h2>
-            <p>A ética digital é o campo de estudo e prática que investiga como as tecnologias da informação impactam a sociedade, os indivíduos e o meio ambiente. Em um mundo profundamente conectado, ela funciona como um código de conduta invisível, orientando o desenvolvimento de inteligências artificiais, a coleta de dados e o comportamento nas redes sociais.</p>
-            
-            <p>Sua importância reside na proteção da dignidade humana. Sem uma postura ética firme por parte de desenvolvedores, governos e usuários, as ferramentas digitais podem amplificar desigualdades, violar a privacidade e espalhar desinformação. Praticar a ética digital significa garantir que o progresso tecnológico caminhe lado a lado com a justiça social e o respeito mútuo.</p>
-            
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80" alt="Conexões digitais brilhantes e seguras" class="responsive-img">
-                <span class="image-caption">Console_Log: A transparência e a segurança de dados são pilares primordiais.</span>
+    <main class="container">
+        <section class="intro-section" id="intro-text">
+            <h2>O que é Ética Digital?</h2>
+            <div class="grid-2col">
+                <div class="text-block">
+                    <p>A ética digital é o conjunto de princípios e valores que regem a conduta dos indivíduos e organizações no ambiente virtual. Ela lida com a forma como usamos a tecnologia, gerenciamos dados e interagimos na internet de maneira justa, segura e respeitosa.</p>
+                    <p>Com o avanço da inteligência artificial e a hiperconectividade, discutir a ética no meio digital tornou-se fundamental para proteger a nossa privacidade, combater a desinformação e garantir a segurança das próximas gerações.</p>
+                </div>
+                <div class="image-block">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Conceito de segurança e ética digital com circuitos integrados acesos">
+                </div>
             </div>
         </section>
 
-        <section class="card timeline-section">
-            <h2>02 // Linha do Tempo Evolutiva</h2>
-            <p class="section-desc">Como os dilemas morais acompanharam a evolução do hardware e software:</p>
-            
+        <section class="timeline-section">
+            <h2>Evolução da Ética Digital</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">_1950s</div>
+                    <div class="timeline-date">1990s</div>
                     <div class="timeline-content">
-                        <h3>Cibernética Inicial</h3>
-                        <p>Norbert Wiener cria as bases da cibernética e levanta os primeiros questionamentos sobre o impacto da automação no emprego e na identidade humana.</p>
+                        <h3>Surgimento da Internet Comercial</h3>
+                        <p>Primeiros debates sobre Netiqueta (etiqueta na internet) e as primeiras regras de conduta em fóruns e e-mails.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">_1970s</div>
+                    <div class="timeline-date">2000s</div>
                     <div class="timeline-content">
-                        <h3>A Era dos Mainframes</h3>
-                        <p>Começam os debates formais sobre crimes de computação, privacidade de dados bancários corporativos e a propriedade intelectual de softwares.</p>
+                        <h3>A Era das Redes Sociais</h3>
+                        <p>Discussões intensas sobre privacidade de dados, exposição pública e o início dos debates sobre direitos autorais digitais.</p>
                     </div>
                 </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">_1990s</div>
+                    <div class="timeline-date">2018</div>
                     <div class="timeline-content">
-                        <h3>A Explosão da Web.www</h3>
-                        <p>Com a internet comercial, nascem dilemas sobre liberdade de expressão global, anonimato, pirataria digital e exclusão digital de populações inteiras.</p>
+                        <h3>Marco das Leis de Privacidade</h3>
+                        <p>Implementação do GDPR na Europa (e posterior LGPD no Brasil), dando aos cidadãos o controle sobre seus dados pessoais online.</p>
                     </div>
                 </div>
-
-                <div class="image-container">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Planeta terra envolto em redes de dados coloridas" class="responsive-img">
-                    <span class="image-caption">Global_Network: Expansão massiva da necessidade de direitos digitais universais.</span>
-                </div>
-
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">_2010s</div>
+                    <div class="timeline-date">Hoje</div>
                     <div class="timeline-content">
-                        <h3>Big Data & Algoritmos</h3>
-                        <p>O foco muda para a economia da atenção, algoritmos viciantes, bolhas de desinformação e a criação de leis como a LGPD e GDPR.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">_2020s_Atual</div>
-                    <div class="timeline-content">
-                        <h3>Sistemas de Inteligência Artificial</h3>
-                        <p>Os desafios atuais envolvem vieses discriminatórios em algoritmos preditivos, automação industrial, deepfakes e agentes autônomos.</p>
+                        <h3>Inteligência Artificial e Viés</h3>
+                        <p>O foco atual está na ética de algoritmos de IA, plágio automatizado, deepfakes e a responsabilidade das Big Techs.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="card faq-section">
-            <h2>03 // FAQ_Perguntas_Frequentes</h2>
-            <p class="section-desc">Expanda os módulos abaixo para interagir com as diretrizes do sistema:</p>
+        <section class="quiz-section">
+            <h2>Teste Seus Conhecimentos</h2>
+            <p>Descubra se você é um cidadão digital consciente!</p>
             
-            <div class="faq-container">
-                <details class="faq-box">
-                    <summary>Quem deve fiscalizar e aplicar a ética digital?</summary>
-                    <div class="faq-answer">
-                        <p>A responsabilidade é dividida: as **empresas de tecnologia** devem criar códigos limpos; os **governos** devem legislar; e nós, **usuários**, devemos praticar a cidadania digital combatendo o ódio virtual.</p>
-                    </div>
-                </details>
-
-                <details class="faq-box">
-                    <summary>Como funcionam os vieses em algoritmos e IAs?</summary>
-                    <div class="faq-answer">
-                        <p>A IA aprende com dados do passado criados por humanos. Se esses dados contiverem preconceitos históricos, a IA irá reproduzir e automatizar esses mesmos preconceitos se não for ativamente auditada.</p>
-                    </div>
-                </details>
-
-                <details class="faq-box">
-                    <summary>O anonimato na internet é um direito ético?</summary>
-                    <div class="faq-answer">
-                        <p>Sim e não. É vital para proteger ativistas sob regimes autoritários, mas torna-se antiético quando vira um escudo para cometer crimes e ataques virtuais sem punição.</p>
-                    </div>
-                </details>
-            </div>
-        </section>
-
-        <section class="card game-section">
-            <h2>04 // Sandbox: Simulador de Dilemas Éticos</h2>
-            <p class="section-desc">Execute o módulo de testes para avaliar seus parâmetros morais em ambiente digital:</p>
-            
-            <div id="game-container" class="game-box">
-                <div id="game-screen-start">
-                    <p>Você analisará 3 logs de eventos reais. Suas escolhas determinam a estabilidade do sistema.</p>
-                    <button id="btn-start-game" class="game-btn">Inicializar_Módulo()</button>
+            <div id="quiz-container">
+                <div id="start-screen">
+                    <input type="text" id="player-name" placeholder="Digite seu nome ou apelido" required>
+                    <button id="btn-start" class="btn-action">Iniciar Quiz</button>
                 </div>
 
-                <div id="game-screen-play" class="hidden">
-                    <div class="game-progress">STATUS: Analisando caso <span id="game-current-question">1</span>/3</div>
-                    <h3 id="game-question-text">Buscando dados...</h3>
+                <div id="question-screen" class="hide">
+                    <div class="progress-bar"><div id="progress"></div></div>
+                    <h3 id="question-text">Pergunta aqui</h3>
+                    <div id="options-container" class="options-grid"></div>
+                </div>
+
+                <div id="result-screen" class="hide">
+                    <h3>Fim de Jogo!</h3>
+                    <p id="player-score-msg"></p>
                     
-                    <div id="game-options" class="options-container">
-                        </div>
-
-                    <div id="game-feedback" class="feedback-container hidden">
-                        <p id="game-feedback-text">Feedback do sistema...</p>
-                        <button id="btn-next-question" class="game-btn-next">Avançar_Módulo >></button>
-                    </div>
+                    <hr>
+                    
+                    <h3>🏆 Ranking Global</h3>
+                    <table id="ranking-table">
+                        <thead>
+                            <tr>
+                                <th>Posição</th>
+                                <th>Jogador</th>
+                                <th>Pontuação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ranking-body">
+                            </tbody>
+                    </table>
+                    <button id="btn-restart" class="btn-action">Jogar Novamente</button>
                 </div>
-
-                <div id="game-screen-result" class="hidden">
-                    <h3>Compilação Finalizada</h3>
-                    <p id="game-result-text">Processando pontuação...</p>
-                    <button id="btn-restart-game" class="game-btn">Reiniciar_Sistema()</button>
-                </div>
-            </div>
-            
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Arte conceitual e fluida unindo mentes e tecnologia em cores vivas" class="responsive-img">
-                <span class="image-caption">System_Check: O futuro exige o equilíbrio perfeito entre código e humanidade.</span>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Console.log("© 2026 - Consciência e Desenvolvimento Tecnológico");</p>
+        <p>&copy; 2026 - Website Interativo de Ética Digital. Criado para fins educativos.</p>
     </footer>
 
     <script src="script.js"></script>
