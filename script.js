@@ -1,176 +1,193 @@
-// Elementos de Acessibilidade
-const accButton = document.getElementById('acc-button');
-const accMenu = document.getElementById('acc-menu');
+// --- 1. FUNCIONALIDADES DE ACESSIBILIDADE ---
+
+// Controle de Tema
 const btnTheme = document.getElementById('btn-theme');
-const btnFont = document.getElementById('btn-font');
-const btnSpeak = document.getElementById('btn-speak');
-const mainContent = document.getElementById('main-content');
-
-// Menu Aberto/Fechado
-accButton.addEventListener('click', () => accMenu.classList.toggle('hidden'));
-document.addEventListener('click', (e) => {
-    if (!accButton.contains(e.target) && !accMenu.contains(e.target)) accMenu.classList.add('hidden');
-});
-
-// Alternador de Temas
 btnTheme.addEventListener('click', () => {
-    document.documentElement.getAttribute('data-theme') === 'dark' 
-        ? document.documentElement.removeAttribute('data-theme') 
-        : document.documentElement.setAttribute('data-theme', 'dark');
+    document.body.classList.toggle('light-theme');
 });
 
-// Fonte Inteligente
-let fontState = 0;
+// Controle de Tamanho da Fonte
+const btnFont = document.getElementById('btn-font');
+let currentScale = 1;
 btnFont.addEventListener('click', () => {
-    fontState = (fontState + 1) % 3;
-    const sizes = ['15px', '18px', '21px'];
-    const labels = ['Aumentar_Fonte', 'Fonte_Grande', 'Fonte_Padrão'];
-    document.documentElement.style.setProperty('--base-font-size', sizes[fontState]);
-    btnFont.textContent = `> ${labels[fontState]}`;
+    currentScale = currentScale === 1 ? 1.2 : currentScale === 1.2 ? 1.4 : 1;
+    document.documentElement.style.setProperty('--font-scale', `${currentScale}rem`);
 });
 
-// Leitor de Tela Sintetizado
+// Sintetizador de Voz (Ouvir o Texto de Introdução)
+const btnSpeak = document.getElementById('btn-speak');
 let isSpeaking = false;
-let synth = window.speechSynthesis;
+const speech = new SpeechSynthesisUtterance();
+speech.lang = 'pt-BR';
+
 btnSpeak.addEventListener('click', () => {
-    if (isSpeaking) {
-        synth.cancel();
-        isSpeaking = false;
-        btnSpeak.textContent = "> Ouvir_Texto";
-        return;
-    }
-    const text = mainContent.innerText;
-    if (text.trim() !== "") {
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'pt-BR';
-        utterance.onend = () => { isSpeaking = false; btnSpeak.textContent = "> Ouvir_Texto"; };
+    if (!isSpeaking) {
+        const textToRead = document.getElementById('intro-text').innerText;
+        speech.text = textToRead;
+        window.speechSynthesis.speak(speech);
+        btnSpeak.innerText = "🛑 Parar";
         isSpeaking = true;
-        btnSpeak.textContent = "> Parar_Áudio";
-        synth.speak(utterance);
+    } else {
+        window.speechSynthesis.cancel();
+        btnSpeak.innerText = "🔊 Ouvir";
+        isSpeaking = false;
     }
 });
 
-// ==========================================
-// GAME ENGINE: DILEMAS ÉTICOS INTERATIVOS
-// ==========================================
+speech.onend = () => {
+    btnSpeak.innerText = "🔊 Ouvir";
+    isSpeaking = false;
+};
 
-const gameQuestions = [
+
+// --- 2. LÓGICA DO QUIZ DE ÉTICA DIGITAL ---
+
+const questions = [
     {
-        question: "Você encontrou uma vulnerabilidade crítica no banco de dados de uma grande empresa que expõe dados sensíveis de milhares de usuários. Qual seu comando?",
+        question: "O que caracteriza uma atitude Ética no ambiente digital?",
         options: [
-            { text: "Enviar um relatório detalhado e secreto ao setor de segurança deles (Divulgação Responsável).", score: 10, explain: "CORRETO. A conduta ética dita que reportar a falha diretamente ajuda a mitigar o risco sem expor as vítimas a criminosos." },
-            { text: "Publicar no Twitter/X imediatamente para expor a incompetência da empresa e ganhar relevância técnica.", score: 0, explain: "ERRADO. Fazer isso coloca milhões de usuários em risco imediato, pois hackers maliciosos aproveitarão a falha antes do conserto." },
-            { text: "Vender a informação para fóruns ocultos. Afinal, conhecimento técnico deve ser rentabilizado.", score: 0, explain: "ANTIÉTICO E ILEGAL. O roubo ou comercialização de brechas cibernéticas de terceiros viola diretamente as leis civis e a integridade social." }
-        ]
+            "Compartilhar prints de conversas privadas sem autorização.",
+            "Respeitar a propriedade intelectual e os dados alheios.",
+            "Usar perfis fakes para comentar em postagens políticas.",
+            "Baixar softwares pirateados se forem muito caros."
+        ],
+        answer: 1
     },
     {
-        question: "Sua equipe de engenharia está alimentando um algoritmo de recrutamento e nota-se que a IA aprendeu a filtrar negativamente candidatos de bairros periféricos devido aos dados do passado.",
+        question: "A LGPD (Lei Geral de Proteção de Dados) serve para:",
         options: [
-            { text: "Deixar o algoritmo rodar. Se os dados mostram isso, a IA está apenas operando com lógica computacional pura.", score: 0, explain: "ERRADO. Isso automatiza e perpetua injustiças e preconceitos estruturais históricos do mundo real." },
-            { text: "Interromper o processo de triagem automatizada, auditar os dados históricos e balancear os vieses de treinamento.", score: 10, explain: "CORRETO. Sistemas justos exigem supervisão humana contínua para evitar vieses e discriminação matemática." }
-        ]
+            "Garantir internet gratuita para toda a população.",
+            "Controlar o tempo que os jovens passam nas redes sociais.",
+            "Proteger os dados pessoais e a privacidade dos cidadãos brasileiros.",
+            "Impedir que memes sejam criados sem autorização das pessoas."
+        ],
+        answer: 2
     },
     {
-        question: "Um link suspeito foi enviado em seu grupo familiar expondo dados falsos, mas altamente apelativos, sobre um escândalo político. O que você faz?",
+        question: "Ao receber uma notícia chocante em um app de mensagem, qual o comportamento ético correto?",
         options: [
-            { text: "Não compartilha, pesquisa em portais de checagem de fatos e alerta o grupo sobre a desinformação.", score: 10, explain: "CORRETO. Interromper a cadeia de fake news com fontes verificadas é um pilar crucial da cidadania digital ativa." },
-            { text: "Encaminha para outros grupos rapidamente. Se for verdade, as pessoas precisam saber logo.", score: 0, explain: "ERRADO. Compartilhar conteúdos sem checagem espalha pânico, deforma debates democráticos e quebra a confiança nas redes." }
-        ]
+            "Repassar imediatamente para todos os contatos e grupos.",
+            "Ignorar totalmente, mesmo que seja sobre segurança pública.",
+            "Verificar em fontes confiáveis e agências de checagem antes de repassar.",
+            "Apagar o aplicativo do celular por segurança."
+        ],
+        answer: 3
     }
 ];
 
 let currentQuestionIndex = 0;
-let totalScore = 0;
+let score = 0;
+let playerName = "";
 
-const screenStart = document.getElementById('game-screen-start');
-const screenPlay = document.getElementById('game-screen-play');
-const screenResult = document.getElementById('game-screen-result');
-const btnStartGame = document.getElementById('btn-start-game');
-const btnRestartGame = document.getElementById('btn-restart-game');
-const btnNextQuestion = document.getElementById('btn-next-question');
-const questionText = document.getElementById('game-question-text');
-const optionsContainer = document.getElementById('game-options');
-const currentQuestionNum = document.getElementById('game-current-question');
-const feedbackContainer = document.getElementById('game-feedback');
-const feedbackText = document.getElementById('game-feedback-text');
-const resultText = document.getElementById('game-result-text');
+// Elementos do DOM do Quiz
+const startScreen = document.getElementById('start-screen');
+const questionScreen = document.getElementById('question-screen');
+const resultScreen = document.getElementById('result-screen');
+const inputName = document.getElementById('player-name');
+const btnStart = document.getElementById('btn-start');
+const btnRestart = document.getElementById('btn-restart');
+const questionText = document.getElementById('question-text');
+const optionsContainer = document.getElementById('options-container');
+const progress = document.getElementById('progress');
+const playerScoreMsg = document.getElementById('player-score-msg');
+const rankingBody = document.getElementById('ranking-body');
 
-btnStartGame.addEventListener('click', startGame);
-btnRestartGame.addEventListener('click', startGame);
-btnNextQuestion.addEventListener('click', advanceGame);
+btnStart.addEventListener('click', startQuiz);
+btnRestart.addEventListener('click', restartQuiz);
 
-function startGame() {
-    currentQuestionIndex = 0;
-    totalScore = 0;
-    screenStart.classList.add('hidden');
-    screenResult.classList.add('hidden');
-    screenPlay.classList.remove('hidden');
-    loadQuestion();
+function startQuiz() {
+    playerName = inputName.value.trim();
+    if (playerName === "") {
+        alert("Por favor, digite seu nome para começar!");
+        return;
+    }
+    startScreen.classList.add('hide');
+    questionScreen.classList.remove('hide');
+    showQuestion();
 }
 
-function loadQuestion() {
-    feedbackContainer.classList.add('hidden');
-    optionsContainer.innerHTML = "";
+function showQuestion() {
+    resetQuestionState();
+    let currentQuestion = questions[currentQuestionIndex];
+    questionText.innerText = currentQuestion.question;
     
-    const currentQuestion = gameQuestions[currentQuestionIndex];
-    currentQuestionNum.textContent = currentQuestionIndex + 1;
-    questionText.textContent = currentQuestion.question;
+    // Atualiza barra de progresso
+    const progressPercent = ((currentQuestionIndex) / questions.length) * 100;
+    progress.style.width = `${progressPercent}%`;
 
     currentQuestion.options.forEach((option, index) => {
         const button = document.createElement('button');
-        button.innerText = option.text;
+        button.innerText = option;
         button.classList.add('option-btn');
-        // Ao clicar, aciona o novo sistema de interatividade e feedback
-        button.addEventListener('click', (e) => selectOption(e, option, currentQuestion));
+        button.addEventListener('click', () => selectAnswer(index));
         optionsContainer.appendChild(button);
     });
 }
 
-function selectOption(event, selectedOption, currentQuestion) {
-    // Congela todos os botões daquela pergunta para impedir múltiplos cliques
-    const allButtons = optionsContainer.querySelectorAll('.option-btn');
-    allButtons.forEach(btn => btn.disabled = true);
-
-    totalScore += selectedOption.score;
-
-    // Destaca de forma interativa a resposta certa em verde e a errada selecionada em vermelho
-    if (selectedOption.score === 10) {
-        event.target.classList.add('correct');
-    } else {
-        event.target.classList.add('wrong');
-        // Encontra o botão que tinha a resposta certa para mostrar ao usuário
-        const correctIndex = currentQuestion.options.findIndex(opt => opt.score === 10);
-        if (correctIndex !== -1) {
-            allButtons[correctIndex].classList.add('correct');
-        }
+function resetQuestionState() {
+    while (optionsContainer.firstChild) {
+        optionsContainer.removeChild(optionsContainer.firstChild);
     }
-
-    // Exibe o diagnóstico com efeito interativo na tela
-    feedbackText.innerHTML = `<strong>[DIAGNÓSTICO_DO_SISTEMA]:</strong><br>${selectedOption.explain}`;
-    feedbackContainer.classList.remove('hidden');
 }
 
-function advanceGame() {
+function selectAnswer(selectedIndex) {
+    if (selectedIndex === questions[currentQuestionIndex].answer) {
+        score += 10; // Cada resposta certa vale 10 pontos
+    }
+    
     currentQuestionIndex++;
-    if (currentQuestionIndex < gameQuestions.length) {
-        loadQuestion();
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
     } else {
         showResults();
     }
 }
 
 function showResults() {
-    screenPlay.classList.add('hidden');
-    screenResult.classList.remove('hidden');
+    questionScreen.classList.add('hide');
+    resultScreen.classList.remove('hide');
+    progress.style.width = `100%`;
     
-    let report = "";
-    if (totalScore === 30) {
-        report = "Sua diretriz moral está intacta. Você prioriza a integridade, combate a discriminação de dados e defende a segurança pública digital.";
-    } else if (totalScore >= 10) {
-        report = "Parâmetros instáveis. Você entende os riscos, mas tomou decisões que poderiam expor sistemas ou causar danos colaterais a terceiros.";
-    } else {
-        report = "SISTEMA COMPROMETIDO. Suas decisões favorecem ataques, vazamentos de privacidade e disseminação de vieses. Recomendado reciclar conceitos de cidadania digital.";
+    playerScoreMsg.innerText = `${playerName}, você fez ${score} pontos!`;
+    
+    saveScore(playerName, score);
+    displayRanking();
+}
+
+function saveScore(name, finalScore) {
+    let ranking = JSON.parse(localStorage.getItem('eticaQuizRanking')) || [];
+    ranking.push({ name: name, score: finalScore });
+    // Ordena do maior para o menor score
+    ranking.sort((a, b) => b.score - a.score);
+    // Salva apenas o top 5 para não sobrecarregar
+    ranking = ranking.slice(0, 5);
+    localStorage.setItem('eticaQuizRanking', JSON.stringify(ranking));
+}
+
+function displayRanking() {
+    rankingBody.innerHTML = "";
+    const ranking = JSON.parse(localStorage.getItem('eticaQuizRanking')) || [];
+    
+    if (ranking.length === 0) {
+        rankingBody.innerHTML = `<tr><td colspan="3" style="text-align:center;">Nenhum registro encontrado.</td></tr>`;
+        return;
     }
 
-    resultText.innerHTML = `<strong>Pontuação Final: ${totalScore} / 30 Pontos</strong><br><br>${report}`;
+    ranking.forEach((player, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${index + 1}º</td>
+            <td>${player.name}</td>
+            <td>${player.score} pts</td>
+        `;
+        rankingBody.appendChild(row);
+    });
+}
+
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    resultScreen.classList.add('hide');
+    startScreen.classList.remove('hide');
+    inputName.value = "";
 }
