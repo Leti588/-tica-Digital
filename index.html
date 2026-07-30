@@ -3,117 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ética Digital e Cidadania</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Ética Digital | Navegue com Responsabilidade</title>
+    <style>
+        /* ============================================================
+           1. VARIÁVEIS DE DESIGN E TEMAS (CLARO E ESCURO)
+           ============================================================ */
+        :root {
+            --bg-body: #f4f6fc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --primary: #6366f1; /* Índigo vivo */
+            --primary-hover: #4f46e5;
+            --secondary: #06b6d4; /* Ciano vibrante */
+            --accent: #8b5cf6; /* Violeta */
+            --border-color: #e2e8f0;
+            --card-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --font-size-base: 16px;
+        }
+
+        body.dark-theme {
+            --bg-body: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #818cf8;
+            --primary-hover: #6366f1;
+            --secondary: #22d3ee;
+            --accent: #a78bfa;
+            --border-color: #334155;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ============================================================
+           2. ESTILOS BASE E RESETS
+           ============================================================ */
+        html {
+            font-size: var(--font-size-base);
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        /* ============================================================
+           3. PAINEL DE ACESSIBILIDADE FLUTUANTE
+           ============================================================ */
+        .accessibility-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 8px;
+            background: var(--bg-card);
+            padding: 8px 12px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border-color);
+        }
+
+        .access-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-weight: bold;
+            font-size: 0.9rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .access-btn:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+        }
+
+        /* ============================================================
+           4. SEÇÃO HERO (CABEÇALHO IMPACTANTE)
+           ============================================================ */
+        header.hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 90px 20px 60px;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 24px;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #ffffff;
+            color: var(--primary);
+            padding: 12px 28px;
+            font-weight: 700;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+           5. LAYOUT PRINCIPAL E CARDS INTERATIVOS
+           ============================================================ */
+        main {
+            max-width: 1000px;
+            margin: -30px auto 0;
+            padding: 0 20px;
+        }
+
+        .intro-box {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .intro-box h2 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .card p.summary {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Conteúdo expansível no clique */
+        .card-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+            margin-top: 0;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 0;
+        }
+
+        .card.expanded .card-details {
+            max-height: 300px;
+            opacity: 1;
+            margin-top: 15px;
+            padding-top: 15px;
+        }
+
+        .card-details ul {
+            padding-left: 20px;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        .card-details li {
+            margin-bottom: 6px;
+        }
+
+        .expand-badge {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* ============================================================
+           6. FOOTER
+           ============================================================ */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
-<body class="dark-theme">
+<body>
 
-    <div class="accessibility-menu">
-        <button id="btn-theme" title="Alternar Tema">🌓 Tema</button>
-        <button id="btn-font" title="Aumentar Fonte">A+</button>
-        <button id="btn-speak" title="Ouvir Texto">🔊 Ouvir</button>
-    </div>
+    <aside class="accessibility-bar" aria-label="Barra de Acessibilidade">
+        <button class="access-btn" onclick="toggleTheme()" id="theme-btn" title="Alternar Modo Escuro/Claro">🌙 Modo</button>
+        <button class="access-btn" onclick="changeFontSize(1)" title="Aumentar Texto">A+</button>
+        <button class="access-btn" onclick="changeFontSize(-1)" title="Diminuir Texto">A-</button>
+        <button class="access-btn" onclick="toggleReadAloud()" id="speak-btn" title="Ouvir Conteúdo">🔊 Ler</button>
+    </aside>
 
-    <header>
-        <div class="container header-content">
-            <h1>ÉTICA DIGITAL</h1>
-            <p>O guia para a cidadania no ecossistema tecnológico</p>
-        </div>
+    <header class="hero">
+        <h1>Ética Digital</h1>
+        <p>Aprenda a construir um ambiente online mais seguro, empático e consciente para todos.</p>
+        <a href="#conteudo" class="cta-btn">Explorar Pilares</a>
     </header>
 
-    <main class="container">
-        <section class="intro-section" id="intro-text">
+    <main id="main-content">
+        
+        <section class="intro-box" id="conteudo">
             <h2>O que é Ética Digital?</h2>
-            <div class="grid-2col">
-                <div class="text-block">
-                    <p>A ética digital é o conjunto de princípios e valores que regem a conduta dos indivíduos e organizações no ambiente virtual. Ela lida com a forma como usamos a tecnologia, gerenciamos dados e interagimos na internet de maneira justa, segura e respeitosa.</p>
-                    <p>Com o avanço da inteligência artificial e a hiperconectividade, discutir a ética no meio digital tornou-se fundamental para proteger a nossa privacidade, combater a desinformação e garantir a segurança das próximas gerações.</p>
-                </div>
-                <div class="image-block">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Conceito de segurança e ética digital com circuitos integrados acesos">
-                </div>
-            </div>
+            <p>
+                É o conjunto de princípios morais que guiam nossas atitudes, escolhas e interações no ambiente virtual. 
+                Assim como no mundo físico, nossas ações digitais geram impactos reais nas vidas de outras pessoas.
+            </p>
         </section>
 
-        <section class="timeline-section">
-            <h2>Evolução da Ética Digital</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">1990s</div>
-                    <div class="timeline-content">
-                        <h3>Surgimento da Internet Comercial</h3>
-                        <p>Primeiros debates sobre Netiqueta (etiqueta na internet) e as primeiras regras de conduta em fóruns e e-mails.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2000s</div>
-                    <div class="timeline-content">
-                        <h3>A Era das Redes Sociais</h3>
-                        <p>Discussões intensas sobre privacidade de dados, exposição pública e o início dos debates sobre direitos autorais digitais.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2018</div>
-                    <div class="timeline-content">
-                        <h3>Marco das Leis de Privacidade</h3>
-                        <p>Implementação do GDPR na Europa (e posterior LGPD no Brasil), dando aos cidadãos o controle sobre seus dados pessoais online.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Hoje</div>
-                    <div class="timeline-content">
-                        <h3>Inteligência Artificial e Viés</h3>
-                        <p>O foco atual está na ética de algoritmos de IA, plágio automatizado, deepfakes e a responsabilidade das Big Techs.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="quiz-section">
-            <h2>Teste Seus Conhecimentos</h2>
-            <p>Descubra se você é um cidadão digital consciente!</p>
+        <section class="grid-container" aria-label="Pilares da Ética Digital">
             
-            <div id="quiz-container">
-                <div id="start-screen">
-                    <input type="text" id="player-name" placeholder="Digite seu nome ou apelido" required>
-                    <button id="btn-start" class="btn-action">Iniciar Quiz</button>
+            <article class="card" onclick="toggleCard(this)" tabindex="0">
+                <div class="card-icon">🔒</div>
+                <h3>Privacidade e Dados</h3>
+                <p class="summary">Respeite seus próprios dados e as informações confidenciais de terceiros.</p>
+                <span class="expand-badge">Clique para saber mais +</span>
+                <div class="card-details">
+                    <ul>
+                        <li>Não compartilhe dados pessoais de outras pessoas sem permissão.</li>
+                        <li>Crie senhas fortes e ative a verificação em duas etapas.</li>
+                        <li>Esteja atento às permissões que concede a aplicativos.</li>
+                    </ul>
                 </div>
+            </article>
 
-                <div id="question-screen" class="hide">
-                    <div class="progress-bar"><div id="progress"></div></div>
-                    <h3 id="question-text">Pergunta aqui</h3>
-                    <div id="options-container" class="options-grid"></div>
+            <article class="card" onclick="toggleCard(this)" tabindex="0">
+                <div class="card-icon">🤝</div>
+                <h3>Respeito e Empatia</h3>
+                <p class="summary">Promova a convivência saudável e combata o cyberbullying.</p>
+                <span class="expand-badge">Clique para saber mais +</span>
+                <div class="card-details">
+                    <ul>
+                        <li>Pratique a "Netiqueta": trate os outros como gostaria de ser tratado.</li>
+                        <li>Evite discursos de ódio ou piadas ofensivas.</li>
+                        <li>Antes de comentar em tom agressivo, reflita se diria isso pessoalmente.</li>
+                    </ul>
                 </div>
+            </article>
 
-                <div id="result-screen" class="hide">
-                    <h3>Fim de Jogo!</h3>
-                    <p id="player-score-msg"></p>
-                    
-                    <hr>
-                    
-                    <h3>🏆 Ranking Global</h3>
-                    <table id="ranking-table">
-                        <thead>
-                            <tr>
-                                <th>Posição</th>
-                                <th>Jogador</th>
-                                <th>Pontuação</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ranking-body">
-                            </tbody>
-                    </table>
-                    <button id="btn-restart" class="btn-action">Jogar Novamente</button>
+            <article class="card" onclick="toggleCard(this)" tabindex="0">
+                <div class="card-icon">🔎</div>
+                <h3>Combate às Fake News</h3>
+                <p class="summary">Verifique a veracidade dos fatos antes de clicar em "compartilhar".</p>
+                <span class="expand-badge">Clique para saber mais +</span>
+                <div class="card-details">
+                    <ul>
+                        <li>Cheque a fonte original da notícia.</li>
+                        <li>Desconfie de títulos sensacionalistas ou alarmistas.</li>
+                        <li>Consulte sites de verificação de fatos conhecidos.</li>
+                    </ul>
                 </div>
-            </div>
+            </article>
+
+            <article class="card" onclick="toggleCard(this)" tabindex="0">
+                <div class="card-icon">🎨</div>
+                <h3>Direitos Autorais</h3>
+                <p class="summary">Dê os devidos créditos aos criadores de conteúdo e ideias.</p>
+                <span class="expand-badge">Clique para saber mais +</span>
+                <div class="card-details">
+                    <ul>
+                        <li>Não pratique plágio: sempre cite os autores originais.</li>
+                        <li>Utilize imagens e músicas com licenças livres (como Creative Commons).</li>
+                        <li>Respeite a propriedade intelectual em trabalhos e projetos.</li>
+                    </ul>
+                </div>
+            </article>
+
         </section>
+
     </main>
 
     <footer>
-        <p>&copy; 2026 - Website Interativo de Ética Digital. Criado para fins educativos.</p>
+        <p>Ética Digital • Construindo um futuro digital consciente</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // 1. Interatividade dos Cards (Expansão ao clicar)
+        function toggleCard(cardElement) {
+            cardElement.classList.toggle('expanded');
+            const badge = cardElement.querySelector('.expand-badge');
+            if (cardElement.classList.contains('expanded')) {
+                badge.textContent = 'Clique para fechar -';
+            } else {
+                badge.textContent = 'Clique para saber mais +';
+            }
+        }
+
+        // 2. Acessibilidade: Alternar Tema Claro / Escuro
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const isDark = document.body.classList.contains('dark-theme');
+            document.getElementById('theme-btn').textContent = isDark ? '☀️ Modo' : '🌙 Modo';
+        }
+
+        // 3. Acessibilidade: Ajuste de Tamanho da Fonte
+        let currentFontSize = 16;
+        function changeFontSize(delta) {
+            currentFontSize = Math.min(Math.max(currentFontSize + delta, 12), 22);
+            document.documentElement.style.setProperty('--font-size-base', currentFontSize + 'px');
+        }
+
+        // 4. Acessibilidade: Leitura de Texto por Voz (Web Speech API)
+        let isSpeaking = false;
+        function toggleReadAloud() {
+            if (!('speechSynthesis' in window)) {
+                alert('Seu navegador não suporta a funcionalidade de síntese de voz.');
+                return;
+            }
+
+            const speakBtn = document.getElementById('speak-btn');
+
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+                speakBtn.textContent = '🔊 Ler';
+                speakBtn.style.backgroundColor = 'transparent';
+            } else {
+                const textToRead = document.getElementById('main-content').innerText;
+                const utterance = new SpeechSynthesisUtterance(textToRead);
+                utterance.lang = 'pt-BR';
+                utterance.rate = 1.0;
+
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    speakBtn.textContent = '🔊 Ler';
+                    speakBtn.style.backgroundColor = 'transparent';
+                };
+
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                speakBtn.textContent = '⏹️ Parar';
+                speakBtn.style.backgroundColor = 'var(--secondary)';
+            }
+        }
+    </script>
 </body>
 </html>
