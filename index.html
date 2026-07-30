@@ -8,93 +8,127 @@
 </head>
 <body>
 
-    <aside class="accessibility-bar" aria-label="Barra de Acessibilidade">
-        <button class="access-btn" onclick="toggleTheme()" id="theme-btn" title="Alternar Modo Escuro/Claro">🌙 Modo</button>
+    <aside class="accessibility-bar" aria-label="Painel de Acessibilidade">
+        <button class="access-btn" onclick="toggleTheme()" id="theme-btn" title="Alternar Tema">🌙 Tema</button>
         <button class="access-btn" onclick="changeFontSize(1)" title="Aumentar Texto">A+</button>
         <button class="access-btn" onclick="changeFontSize(-1)" title="Diminuir Texto">A-</button>
-        <button class="access-btn" onclick="toggleReadAloud()" id="speak-btn" title="Ouvir Conteúdo">🔊 Ler</button>
+        <button class="access-btn" onclick="toggleReadAloud()" id="speak-btn" title="Ler Conteúdo em Voz Alta">🔊 Ler</button>
     </aside>
 
     <header class="hero">
-        <h1>Ética Digital</h1>
-        <p>Aprenda a construir um ambiente online mais seguro, empático e consciente para todos.</p>
-        <a href="#conteudo" class="cta-btn">Explorar Pilares</a>
+        <div class="hero-content">
+            <span class="badge-tag">Consciência Virtual</span>
+            <h1>Ética Digital</h1>
+            <p>Construa um ambiente online mais seguro, empático e verdadeiro. Suas atitudes no mundo digital geram impactos reais.</p>
+            <a href="#pilares" class="cta-btn">Explorar Pilares ✨</a>
+        </div>
     </header>
 
     <main id="main-content">
         
-        <section class="intro-box" id="conteudo">
+        <section class="intro-box">
             <h2>O que é Ética Digital?</h2>
             <p>
-                É o conjunto de princípios morais que guiam nossas atitudes, escolhas e interações no ambiente virtual. 
-                Assim como no mundo físico, nossas ações digitais geram impactos reais nas vidas de outras pessoas.
+                É o conjunto de princípios e valores que orientam o comportamento humano nas redes e ambientes virtuais. 
+                Envolve respeitar a privacidade alheia, promover interações saudáveis e cultivar responsabilidade com o conteúdo compartilhado.
             </p>
         </section>
 
-        <section class="grid-container" aria-label="Pilares da Ética Digital">
+        <section id="pilares" class="grid-container" aria-label="Pilares da Ética Digital">
             
-            <article class="card" onclick="toggleCard(this)" tabindex="0">
-                <div class="card-icon">🔒</div>
-                <h3>Privacidade e Dados</h3>
-                <p class="summary">Respeite seus próprios dados e as informações confidenciais de terceiros.</p>
-                <span class="expand-badge">Clique para saber mais +</span>
+            <article class="card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <span class="card-icon">🔒</span>
+                    <h3>Privacidade de Dados</h3>
+                </div>
+                <p class="summary">Proteja suas informações e respeite o sigilo dos dados alheios.</p>
                 <div class="card-details">
                     <ul>
-                        <li>Não compartilhe dados pessoais de outras pessoas sem permissão.</li>
-                        <li>Crie senhas fortes e ative a verificação em duas etapas.</li>
-                        <li>Esteja atento às permissões que concede a aplicativos.</li>
+                        <li>Não exponha dados pessoais ou fotos de terceiros sem permissão.</li>
+                        <li>Utilize senhas fortes e autenticação em dois fatores.</li>
+                        <li>Reveja periodicamente as permissões concedidas aos aplicativos.</li>
                     </ul>
                 </div>
+                <span class="expand-btn">Clique para expandir ✦</span>
             </article>
 
-            <article class="card" onclick="toggleCard(this)" tabindex="0">
-                <div class="card-icon">🤝</div>
-                <h3>Respeito e Empatia</h3>
-                <p class="summary">Promova a convivência saudável e combata o cyberbullying.</p>
-                <span class="expand-badge">Clique para saber mais +</span>
+            <article class="card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <span class="card-icon">🤝</span>
+                    <h3>Respeito e Empatia</h3>
+                </div>
+                <p class="summary">Promova a boa convivência e combata o cyberbullying.</p>
                 <div class="card-details">
                     <ul>
-                        <li>Pratique a "Netiqueta": trate os outros como gostaria de ser tratado.</li>
-                        <li>Evite discursos de ódio ou piadas ofensivas.</li>
-                        <li>Antes de comentar em tom agressivo, reflita se diria isso pessoalmente.</li>
+                        <li>Pratique a Netiqueta: comunique-se com civilidade.</li>
+                        <li>Reflita antes de publicar comentários em momentos de raiva.</li>
+                        <li>Não estimule nem compartilhe discursos de ódio.</li>
                     </ul>
                 </div>
+                <span class="expand-btn">Clique para expandir ✦</span>
             </article>
 
-            <article class="card" onclick="toggleCard(this)" tabindex="0">
-                <div class="card-icon">🔎</div>
-                <h3>Combate às Fake News</h3>
-                <p class="summary">Verifique a veracidade dos fatos antes de clicar em "compartilhar".</p>
-                <span class="expand-badge">Clique para saber mais +</span>
+            <article class="card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <span class="card-icon">🔎</span>
+                    <h3>Combate a Fake News</h3>
+                </div>
+                <p class="summary">Verifique a veracidade das notícias antes de repassar.</p>
                 <div class="card-details">
                     <ul>
-                        <li>Cheque a fonte original da notícia.</li>
-                        <li>Desconfie de títulos sensacionalistas ou alarmistas.</li>
-                        <li>Consulte sites de verificação de fatos conhecidos.</li>
+                        <li>Desconfie de manchetes sensacionalistas ou alarmistas.</li>
+                        <li>Cheque a data de publicação e a credibilidade da fonte.</li>
+                        <li>Consulte agências de checagem de fatos confiáveis.</li>
                     </ul>
                 </div>
+                <span class="expand-btn">Clique para expandir ✦</span>
             </article>
 
-            <article class="card" onclick="toggleCard(this)" tabindex="0">
-                <div class="card-icon">🎨</div>
-                <h3>Direitos Autorais</h3>
-                <p class="summary">Dê os devidos créditos aos criadores de conteúdo e ideias.</p>
-                <span class="expand-badge">Clique para saber mais +</span>
+            <article class="card" onclick="toggleCard(this)">
+                <div class="card-header">
+                    <span class="card-icon">🎨</span>
+                    <h3>Propriedade Intelectual</h3>
+                </div>
+                <p class="summary">Valorize o trabalho e os direitos de criadores digitais.</p>
                 <div class="card-details">
                     <ul>
-                        <li>Não pratique plágio: sempre cite os autores originais.</li>
-                        <li>Utilize imagens e músicas com licenças livres (como Creative Commons).</li>
-                        <li>Respeite a propriedade intelectual em trabalhos e projetos.</li>
+                        <li>Sempre dê o devido crédito ao autor original de uma obra.</li>
+                        <li>Não cometa plágio em textos, artes ou códigos.</li>
+                        <li>Dê preferência a recursos sob licença Creative Commons.</li>
                     </ul>
                 </div>
+                <span class="expand-btn">Clique para expandir ✦</span>
             </article>
 
+        </section>
+
+        <section class="quiz-section">
+            <h2>⚡ Teste Rápido: Qual é o seu nível de Ética Digital?</h2>
+            <p>Marque as atitudes que você costuma praticar no seu dia a dia online:</p>
+            
+            <form id="quiz-form">
+                <label class="quiz-option">
+                    <input type="checkbox" value="1"> Checo a veracidade de uma notícia antes de repassar em grupos.
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" value="1"> Peço autorização antes de postar foto/vídeo onde aparecem outras pessoas.
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" value="1"> Evito responder provocações ou engajar em discussões tóxicas.
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" value="1"> Credito os criadores originais quando compartilho imagens ou textos.
+                </label>
+                <button type="button" class="quiz-btn" onclick="calculateQuizScore()">Ver Resultado</button>
+            </form>
+
+            <div id="quiz-result" class="quiz-result-box hidden"></div>
         </section>
 
     </main>
 
     <footer>
-        <p>Ética Digital • Construindo um futuro digital consciente</p>
+        <p>Ética Digital • Construindo uma internet mais humana e consciente.</p>
     </footer>
 
     <script src="script.js"></script>
